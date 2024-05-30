@@ -1,21 +1,18 @@
 const Sequalize = require('sequelize');
-
-const user = process.env.DB_USER_PASSWORD;
+const config = require('../config');
 
 const sequalize = new Sequalize(
-    'mysql',
-    'root',
-    'Sanda@12',
+    config.dbName,
+    config.dbUser,
+    config.dbPass,
     {
-        'host' : 'localhost',
+        'host' : config.dbHost,
         'dialect' : 'mysql'
     }
 );
 
 module.exports.connection = sequalize.authenticate().then(()=>{
     console.log("authenticated");
-    console.log(process.env.DB_USER)
-    console.log(user);
 }).catch(err=>{
     console.log(err);
 });
