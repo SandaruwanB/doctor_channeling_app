@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mediplus | Home</title>
+    <title>Mediplus | Services</title>
     <%- include('imports/mainCSS') %>
 </head>
 <body>
     <%- include('imports/preloader') %>
     <%- include('layouts/headerMain') %>
 
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="bread-inner">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Services</h2>
+                        <ul class="bread-list">
+                            <li><a href="/">Home</a></li>
+                            <li><i class="icofont-simple-right"></i></li>
+                            <li class="active">Services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <%- include('layouts/footerMain') %>
     <%- include('imports/mainJS') %>
