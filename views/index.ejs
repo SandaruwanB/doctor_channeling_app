@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mediplus | Home</title>
+    <%- include('imports/mainCSS') %>
 </head>
 <body>
-    <h1>adasdasdas  adasda</h1>
-    <h5>adakjshdkjasdasj asdhajhsj</h5>
+    <%  for (const user of users) { %>
+        <h1><%= user.name %></h1> 
+        <p><%= user.age %></p>    
+        <%- include('layouts/hello') %>           
+    <% } %>
+
+    <%- include('imports/mainJS') %>
 </body>
 </html>

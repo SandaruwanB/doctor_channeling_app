@@ -1,3 +1,15 @@
 module.exports.getHome = (req,res)=>{
-    res.render('index');
+    const users = [
+        {
+            'name' : 'kasun',
+            'age' : 22,
+        },
+        {
+            'name' : 'nimal',
+            'age' : 28,
+        },
+    ]
+
+
+    res.render('index', {users});
 }
