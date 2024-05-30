@@ -1,5 +1,6 @@
 const Sequalize = require('sequelize');
-const dotenv = require('dotenv');
+
+const user = process.env.DB_USER_PASSWORD;
 
 const sequalize = new Sequalize(
     'mysql',
@@ -13,6 +14,8 @@ const sequalize = new Sequalize(
 
 module.exports.connection = sequalize.authenticate().then(()=>{
     console.log("authenticated");
+    console.log(process.env.DB_USER)
+    console.log(user);
 }).catch(err=>{
     console.log(err);
 });
