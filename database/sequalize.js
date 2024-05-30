@@ -1,7 +1,7 @@
 const Sequalize = require('sequelize');
 const config = require('../config');
 
-const sequalize = new Sequalize(
+module.exports.sequalize = new Sequalize(
     config.dbName,
     config.dbUser,
     config.dbPass,
@@ -10,9 +10,3 @@ const sequalize = new Sequalize(
         'dialect' : 'mysql'
     }
 );
-
-module.exports.connection = sequalize.authenticate().then(()=>{
-    console.log("authenticated");
-}).catch(err=>{
-    console.log(err);
-});
