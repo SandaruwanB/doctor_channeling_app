@@ -1,12 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('./config');
+const defaultUser = require('./database/defaultUser');
+const migration = require('./migration');
 const app = express();
 const {sequalize} = require('./database/sequalize');
 
 sequalize.authenticate().catch(err=>{
     console.log(err);
 });
+
+// database migrations andd seeds
+
+/*migration.migrate();
+defaultUser.createDefaultUser();*/
 
 const PORT = config.serverPort || 8000; 
 
