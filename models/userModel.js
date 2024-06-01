@@ -16,6 +16,14 @@ const User = sequalize.define('user', {
         allowNull : false,
         unique : true
     },
+    contact : {
+        type : Sequalizer.STRING,
+        allowNull : true
+    },
+    address : {
+        type : Sequalizer.STRING,
+        allowNull : true,
+    },
     password : {
         type : Sequalizer.STRING,
         allowNull : false,
