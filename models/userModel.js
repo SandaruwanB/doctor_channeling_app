@@ -10,6 +10,15 @@ const User = sequalize.define('user', {
     lastName : {
         type : Sequalizer.STRING,
         allowNull : false,
+    },
+    email : {
+        type : Sequalizer.STRING,
+        allowNull : false,
+        unique : true
+    },
+    password : {
+        type : Sequalizer.STRING,
+        allowNull : false,
     }
 });
 
