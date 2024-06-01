@@ -77,7 +77,16 @@
                     dataType: "json",
                     success: function (response) {
                         console.log(response.result);
-                        showToast("success", "");
+                        const result = response.result;
+                        if(result === "not" ){
+                            showToast("Invalid credentials.account not found.", "err");
+                        }
+                        else if(result === "pass"){
+                            showToast("Invalid credentials.incorrect password.", "err");
+                        }
+                        else{
+                            showToast("success", "");
+                        }
                     }
                 });
             }
