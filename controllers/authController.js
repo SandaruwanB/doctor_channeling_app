@@ -3,6 +3,6 @@ module.exports.index = (req,res)=>{
 }
 
 module.exports.performLogin = (req,res)=>{
-    console.log(req.body);
+    const {email, password} = req.body;
     res.send("ok");
-}
+} 

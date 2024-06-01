@@ -25,21 +25,21 @@
                 </div>
             </div>
 
-        <form class="form" action="/login" method="post" class="d-flex d-md-inline-flex justify-content-center flex-column">
+        <form class="form" class="d-flex d-md-inline-flex justify-content-center flex-column">
             <div class="w-100 d-flex justify-content-center">
                 <div>
                     <div class="form-group">
-                        <input name="email" type="email" placeholder="Email Address" />
+                        <input name="email" class="text-lowercase" id="uname" type="email" placeholder="email address" required/>
                     </div>
                     <div class="form-group">
-                        <input name="password" type="password" placeholder="Password" />
+                        <input name="password" class="text-lowercase" id="pwrd" type="password" placeholder="password" required/>
                     </div>
                     <div class="w-100 text-right">
                         <a href="#">Forgot Password ?</a>
                     </div>
                     <div class="form-group text-center mt-3">
                         <div class="button">
-                            <button type="submit" class="btn">
+                            <button type="submit" class="btn sign-btn">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign
                                 In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </button>
@@ -52,5 +52,49 @@
     </section>
 
     <%- include('components/mainJS') %>
-  </body>
+    <script>
+        $('.sign-btn').click(function (e) { 
+            e.preventDefault();
+            
+            const username = $('#uname').val();
+            const pass = $('#pwrd').val();
+
+            if (pass === "" || username === ""){
+                showToast("All fields are required.", "err");
+            }
+
+        });
+
+        const showToast = (message, type)=>{
+            if (type == "err"){
+                Toastify({
+                    text: message,
+                    duration: 3000,
+                    close : true,
+                    stopOnFocus : true,
+                    gravity : "top",
+                    position : "center",
+                    style : {
+                        background : "#f51905",
+                        color : "#fff"
+                    }
+                }).showToast();
+            }
+            else{
+                Toastify({
+                    text: message,
+                    duration: 3000,
+                    close : true,
+                    stopOnFocus : true,
+                    gravity : "top",
+                    position : "center",
+                    style : {
+                        background : "#03a80e",
+                        color : "#fff"
+                    }
+                }).showToast();
+            }
+        }
+    </script>
+</body>
 </html>
