@@ -79,10 +79,10 @@
                         console.log(response.result);
                         const result = response.result;
                         if(result === "not" ){
-                            showToast("Invalid credentials.account not found.", "err");
+                            showToast("Invalid credentials.", "err");
                         }
                         else if(result === "pass"){
-                            showToast("Invalid credentials.incorrect password.", "err");
+                            showToast("Invalid credentials.", "err");
                         }
                         else{
                             showToast("success", "");
