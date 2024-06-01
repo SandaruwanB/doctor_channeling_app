@@ -58,9 +58,28 @@
             
             const username = $('#uname').val();
             const pass = $('#pwrd').val();
+            const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
             if (pass === "" || username === ""){
                 showToast("All fields are required.", "err");
+            }
+            else if(!username.match(validRegex)){
+                showToast("Invalid email address.", "err");
+            }
+            else{
+                $.ajax({
+                    type: "post",
+                    url: "/login",
+                    data: {
+                        email : username,
+                        password : pass
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response.result);
+                        showToast("success", "");
+                    }
+                });
             }
 
         });

@@ -4,5 +4,5 @@ module.exports.index = (req,res)=>{
 
 module.exports.performLogin = (req,res)=>{
     const {email, password} = req.body;
-    res.send("ok");
+    res.json({result : "success"});
 } 
