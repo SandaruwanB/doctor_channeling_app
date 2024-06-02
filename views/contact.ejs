@@ -137,7 +137,13 @@
                     },
                     dataType: "json",
                     success: function (response) {
-                        showToast("Thanks for contacting us.please stay touch with your email inbox.", "");
+                        $('.name').val("");
+                        $('.email').val("");
+                        $('.phone').val("");
+                        $('.subject').val("");
+                        $('.message').val("");
+
+                        showToast("Thanks for contacting us.please stay touch with your email box.", "");
                     }
                 });
             }
@@ -151,8 +157,7 @@
             if (type == "err"){
                 Toastify({
                     text: message,
-                    duration: 3000,
-                    close : true,
+                    duration: 4000,
                     stopOnFocus : true,
                     gravity : "top",
                     position : "center",
@@ -165,8 +170,7 @@
             else{
                 Toastify({
                     text: message,
-                    duration: 3000,
-                    close : true,
+                    duration: 4000,
                     stopOnFocus : true,
                     gravity : "top",
                     position : "center",
