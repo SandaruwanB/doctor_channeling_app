@@ -32,3 +32,8 @@ module.exports.performLogin = (req,res)=>{
         console.log(err);
     })
 } 
+
+
+module.exports.logout = (req,res)=>{
+    
+}
