@@ -1,5 +1,6 @@
 const route = require('express').Router();
 const authController = require('../controllers/authController');
+const adminDash = require('../controllers/adminDashboardController');
 
 route.get('/', (req,res)=>{res.render('index')});
 route.get('/about', (req,res)=>{res.render('about')});
@@ -10,7 +11,7 @@ route.get('/login', authController.index);
 
 route.post('/login', authController.performLogin);
 
-
+route.get('/admin/dashboard', adminDash.getView);
 
 route.get('*', (req,res)=>{res.render('notFound')});
 
