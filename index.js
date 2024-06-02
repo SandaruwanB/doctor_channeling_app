@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('./config');
+const cookieParser = require('cookie-parser');
 const defaultUser = require('./database/defaultUser');
 const migration = require('./migration');
 const app = express();
@@ -18,6 +19,7 @@ sequalize.authenticate().catch(err=>{
 const PORT = config.serverPort || 8000; 
 
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(cookieParser(config.authSecret));
 app.set('view engine', 'ejs');
 app.use(express.static('assets'));
 app.use('/', require('./routes/routes'));
