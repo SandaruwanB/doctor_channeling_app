@@ -13,7 +13,7 @@ sequalize.authenticate().catch(err=>{
 
 // uncomment to perform database migrations and seeds
 
-//migration.migrate();
+migration.migrate();
 //defaultUser.createDefaultUser();
 
 const PORT = config.serverPort || 8000; 

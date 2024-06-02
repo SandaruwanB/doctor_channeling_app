@@ -2,6 +2,7 @@ const {sequalize} = require('./database/sequalize');
 require('./models/userModel');
 require('./models/doctorModel');
 require('./models/patientModel');
+require('./models/channelingModel');
 
 
 module.exports.migrate = ()=>{
