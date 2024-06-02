@@ -8,7 +8,4 @@ module.exports = {
     dbPass : process.env.DB_USER_PASSWORD,
     dbHost : process.env.DB_HOST,
     authSecret : process.env.AUTH_SECRET,
-    tokenSave : process.env.TOKEN_SAVE,
-    sessionSave : process.env.UNINITIALIZE_SESSION_SAVE,
-    cookieSecure : process.env.COOKIE_SECURE,
 }

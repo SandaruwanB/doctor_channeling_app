@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 const defaultUser = require('./database/defaultUser');
 const migration = require('./migration');
-const session = require('express-session');
 const app = express();
 const {sequalize} = require('./database/sequalize');
 
@@ -18,7 +17,6 @@ sequalize.authenticate().catch(err=>{
 
 const PORT = config.serverPort || 8000; 
 
-app.use(session({secret : config.authSecret, resave : config.tokenSave, saveUninitialized : config.sessionSave, cookie : {secure : config.cookieSecure}}));
 app.use(bodyParser.urlencoded({extended : true}));
 app.set('view engine', 'ejs');
 app.use(express.static('assets'));

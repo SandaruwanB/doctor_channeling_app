@@ -18,7 +18,7 @@ module.exports.performLogin = (req,res)=>{
                     res.json({result : "authenticated"});
                 }
                 else{
-                    res.json({result : "pass"});
+                    res.send({result : "pass"});
                 }
             }).catch(err=>{
                 console.log(err);
