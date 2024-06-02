@@ -1,5 +1,7 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 module.exports.index = (req,res)=>{
     res.render('login');
@@ -15,6 +17,8 @@ module.exports.performLogin = (req,res)=>{
         else{
             bcrypt.compare(password,user.password).then(result=>{
                 if(result){
+                    const token = jwt.sign(user.email, config.authSecret);
+                    res.cookie("session", token);
                     res.json({result : "authenticated"});
                 }
                 else{
