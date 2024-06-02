@@ -1,5 +1,8 @@
 const {sequalize} = require('./database/sequalize');
 require('./models/userModel');
+require('./models/doctorModel');
+require('./models/patientModel');
+
 
 module.exports.migrate = ()=>{
     sequalize.sync({force : true}).then(()=>{
