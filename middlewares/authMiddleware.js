@@ -11,7 +11,6 @@ module.exports.cookieAuthCheck = (req,res, next) => {
     }
     catch (err){
         res.clearCookie("session");
-        console.log("token not found");
         return res.render('login');
     }
 }
@@ -24,7 +23,6 @@ module.exports.authNotRequired = (req,res,next)=>{
         return res.render('admin/dashboard');
     }
     catch(err){
-        console.log("token not found");
         next();
     }
 }
