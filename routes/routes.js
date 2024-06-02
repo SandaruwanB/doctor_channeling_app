@@ -1,17 +1,18 @@
 const route = require('express').Router();
+const midlleware = require('../middlewares/authMiddleware');
 const authController = require('../controllers/authController');
 const adminDash = require('../controllers/adminDashboardController');
 
-route.get('/', (req,res)=>{res.render('index')});
-route.get('/about', (req,res)=>{res.render('about')});
-route.get('/contact', (req,res)=>{res.render('contact')});
-route.get('/doctors', (req,res)=>{res.render('doctors')});
-route.get('/services', (req,res)=>{res.render('services')});
-route.get('/login', authController.index);
+route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
+route.get('/about', midlleware.authNotRequired, (req,res)=>{res.render('about')});
+route.get('/contact', midlleware.authNotRequired, (req,res)=>{res.render('contact')});
+route.get('/doctors', midlleware.authNotRequired, (req,res)=>{res.render('doctors')});
+route.get('/services', midlleware.authNotRequired, (req,res)=>{res.render('services')});
+route.get('/login', midlleware.authNotRequired, authController.index);
 
 route.post('/login', authController.performLogin);
 
-route.get('/admin/dashboard', adminDash.getView);
+route.get('/admin/dashboard', midlleware.cookieAuthCheck ,adminDash.getView);
 
 route.get('*', (req,res)=>{res.render('notFound')});
 
