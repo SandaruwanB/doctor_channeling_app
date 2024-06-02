@@ -35,5 +35,6 @@ module.exports.performLogin = (req,res)=>{
 
 
 module.exports.logout = (req,res)=>{
-    
+    res.clearCookie("session");
+    return res.render('index');
 }
