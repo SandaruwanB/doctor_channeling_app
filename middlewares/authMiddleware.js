@@ -11,7 +11,7 @@ module.exports.cookieAuthCheck = (req,res, next) => {
     }
     catch (err){
         res.clearCookie("session");
-        return res.render('login');
+        return res.redirect('/login');
     }
 }
 
@@ -20,7 +20,7 @@ module.exports.authNotRequired = (req,res,next)=>{
     try{
         const user = jwt.verify(token, config.authSecret);
         req.user = user;
-        return res.render('admin/dashboard');
+        return res.redirect('/admin/dashboard');
     }
     catch(err){
         next();
