@@ -5,13 +5,13 @@ const adminDash = require('../controllers/adminDashboardController');
 const contactsController = require('../controllers/contactsController');
 const userController = require('../controllers/userController');
 const channelingController = require('../controllers/channelingController');
+const paymentController = require('../controllers/paymentsController');
 
 // default routes
 route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
 route.get('/about', midlleware.authNotRequired, (req,res)=>{res.render('about')});
 route.get('/contact', midlleware.authNotRequired, contactsController.index);
 route.get('/doctors', midlleware.authNotRequired, (req,res)=>{res.render('doctors')});
-
 route.post('/contact', contactsController.addContact);
 
 // auth routes
@@ -22,8 +22,9 @@ route.post('/logout', authController.logout);
 // admin routes
 route.get('/admin/dashboard', midlleware.cookieAuthCheck ,adminDash.getView);
 route.get('/admin/users', midlleware.cookieAuthCheck, userController.getUsers);
-route.get('/admin/channelings', midlleware.cookieAuthCheck, channelingController.getView);
+route.get('/admin/channelings', midlleware.cookieAuthCheck, channelingController.getAdminView);
 route.get('/admin/contacts', midlleware.cookieAuthCheck, contactsController.getAdminView);
+route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getView);
 
 // notfound route
 route.get('*', (req,res)=>{res.render('notFound')});
