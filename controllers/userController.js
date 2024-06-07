@@ -15,29 +15,40 @@ module.exports.removeUser = async (req,res)=>{
 
 module.exports.editUser = async (req,res)=>{
     const user = await User.findOne({where : {id : req.params.id}});
-    res.render('admin/actions/userForm');
+    res.render('admin/actions/userForm', {user});
 }
 
 module.exports.upadateUser = async (req,res)=>{
     const saltRounds = 10;
 
-    bcrypt.hash(req.body.password, saltRounds, async (err, hash)=>{
-        if(err){
-            console.log("unable to update");
-        }
-        else{
-            const updatedData = {
-                firstName : req.body.firstName,
-                lastName : req.body.lastName,
-                email : req.body.email,
-                contact : req.body.contact,
-                address : req.body.address,
-                password : hash
-            };
-            await User.update(updatedData, {where : {id : req.params.id}});
-        }
-    })
-    console.log(req.body);
+    if (req.body.password == ""){
+        const updatedData = {
+            firstName : req.body.firstName,
+            lastName : req.body.lastName,
+            email : req.body.email,
+            contact : req.body.contact,
+            address : req.body.address,
+        };
+        await User.update(updatedData, {where : {id : req.params.id}});
+    }
+    else{
+        bcrypt.hash(req.body.password, saltRounds, async (err, hash)=>{
+            if(err){
+                console.log("unable to update");
+            }
+            else{
+                const updatedData = {
+                    firstName : req.body.firstName,
+                    lastName : req.body.lastName,
+                    email : req.body.email,
+                    contact : req.body.contact,
+                    address : req.body.address,
+                    password : hash
+                };
+                await User.update(updatedData, {where : {id : req.params.id}});
+            }
+        })
+    }
     res.redirect('/admin/users');
 }
 
