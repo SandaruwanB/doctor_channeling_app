@@ -34,10 +34,12 @@ route.get('/admin/patients', midlleware.cookieAuthCheck, patientController.getPa
 
 route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.editUser);
 route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
+route.get('/admin/patients/edit/:id', midlleware.cookieAuthCheck, patientController.editPatients);
 
 route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
 route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController.removeUser);
 route.post('/admin/doctors/remove/:id', midlleware.cookieAuthCheck, doctorController.removeDoctor);
+route.post('/admin/patients/remove/:id', midlleware.cookieAuthCheck, patientController.removePatient);
 
 
 // notfound route

@@ -29,14 +29,33 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Contact</th>
-                                            <th>Working Hours</th>
-                                            <th>Average time per patient</th>
-                                            <th>Specialized in</th>
+                                            <th>Address</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        <% if (patientDetails.length > 0) { %>
+                                            <% for (const details of patientDetails){ %>
+                                                <tr>
+                                                    <td><%= details.name %></td>
+                                                    <td><%= details.email %></td>
+                                                    <td><%= details.mobile %></td>
+                                                    <td><%= details.address %></td>
+                                                    <td><%= details.age %></td>
+                                                    <td><%= details.gender %></td>
+                                                    <td>
+                                                        <a href="/admin/patients/edit/<%= details.id %>"><button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                                        <form action="/admin/patients/remove/<%= details.id %>" method="post" class="action-buttons"><button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button></form>
+                                                    </td>
+                                                </tr>
+                                            <% } %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td style="text-align: center; color: gray;" colspan="7">No patients found</td>
+                                            </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
                             </div>
