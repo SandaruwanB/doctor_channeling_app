@@ -1,6 +1,5 @@
 const Sequalizer = require('sequelize');
 const {sequalize} = require('../database/sequalize');
-const doctorSpacialize = require('./doctorSpecializationModel');
 
 const doctor = sequalize.define("doctor", {
     firstName : {
@@ -30,9 +29,11 @@ const doctor = sequalize.define("doctor", {
     averageTimePerPatient : {
         type : Sequalizer.FLOAT,
         allowNull : false
+    },
+    specializedIn : {
+        type : Sequalizer.STRING,
+        allowNull : false
     }
 });
-
-doctor.hasOne(doctorSpacialize, {foreignKey : "specialId"});
 
 module.exports = doctor;

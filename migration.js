@@ -6,7 +6,6 @@ require('./models/channelingModel');
 require('./models/contactModel');
 require('./models/paymentsModel');
 
-
 module.exports.migrate = ()=>{
     sequalize.sync({force : true}).then(()=>{
         console.log("Tables Created");
