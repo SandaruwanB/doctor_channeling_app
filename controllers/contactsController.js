@@ -27,7 +27,7 @@ module.exports.getAdminView = async (req,res)=>{
 }
 
 module.exports.removeMessage = async (req,res)=>{
-    console.log(req.params.id);
+    await Contact.destroy({where : {id : req.params.id}});
     res.redirect('/admin/contacts');
 }
 
