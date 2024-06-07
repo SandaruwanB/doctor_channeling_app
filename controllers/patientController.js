@@ -11,5 +11,7 @@ module.exports.editPatients = async (req,res)=>{
 }
 
 module.exports.removePatient = async (req,res)=>{
-    res.redirect('/admin/patients');
+    await patients.destroy({where : {id : req.params.id}});
+    const message = "Successfully Removed";
+    res.redirect('/admin/patients', {message});
 }
