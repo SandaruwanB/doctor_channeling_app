@@ -13,7 +13,8 @@ module.exports.addContact = (req,res)=>{
         email : email, 
         contact : contact, 
         subject : subject, 
-        message : message
+        message : message,
+        status : false,
     });
 
     res.json({result : "success"});

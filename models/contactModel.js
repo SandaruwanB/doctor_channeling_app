@@ -24,9 +24,9 @@ const contact = sequalize.define('contact', {
         allowNull : false
     },
     status : {
-        type : Sequalizer.STRING,
+        type : Sequalizer.BOOLEAN,
         allowNull : false,
-        default : "Not replied"
+        default : false
     }
 });
 

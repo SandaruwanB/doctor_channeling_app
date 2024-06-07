@@ -11281,3 +11281,16 @@ body {
 .reply-btn:hover{
   box-shadow: 0px 0px 5px 2px gray;
 }
+
+.status-ok{
+  background: #0c5908;
+  padding: 6px 8px;
+  color: #fff;
+  border-radius: 4px;
+}
+.status-false{
+  background: #780d0a;
+  padding: 6px 8px;
+  color: #fff;
+  border-radius: 4px;
+}

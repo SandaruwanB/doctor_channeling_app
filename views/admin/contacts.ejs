@@ -28,6 +28,7 @@
                                             <th>Subject</th>
                                             <th>Message</th>
                                             <th>Contact no.</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -40,6 +41,7 @@
                                                     <td><%= message.subject %></td>
                                                     <td><%= message.message %></td>
                                                     <td><%= message.contact %></td>
+                                                    <td><span class="<%= message.status ? "status-ok" : "status-false" %>"><%= message.status ? "replied" : "not replied" %></span></td>
                                                     <td>
                                                         <form class="action-buttons" action="/admin/contacts/<%= message.id %>" method="post"><button class="delete-btn" type="submit"><i class="fa-solid fa-trash"></i></button></form>
                                                         <a href="/admin/contact/reply/<%= message.id %>"><button class="reply-btn"><i class="fa-solid fa-reply"></i></button></a>
