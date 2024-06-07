@@ -10,8 +10,7 @@ const payment = sequalize.define('payment', {
     amount : {
         type : Sequalizer.FLOAT,
         allowNull : false
-    },
-    
+    },    
 });
 
 channeling.hasOne(payment, {foreignKey : "channelId"});
