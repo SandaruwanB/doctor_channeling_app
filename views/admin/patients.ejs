@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Suwasetha | Manage Doctors</title>
+        <%- include('components/cssIncludes') %>
+    </head>
+    <body class="sb-nav-fixed">
+        <%- include('layouts/topnavbar') %>
+        <div id="layoutSidenav">
+            <%- include('layouts/navbar') %>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Patients</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"><a style="text-decoration: none;" href="/admin/dashboard">Dashboard</a> / Patients</li>
+                        </ol>
+                        <div class="mt-1 mb-3">
+                            <a href=""><button class="add-new-btn"><i class="fa-solid fa-plus"></i>&nbsp;Add New</button></a>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Contact</th>
+                                            <th>Working Hours</th>
+                                            <th>Average time per patient</th>
+                                            <th>Specialized in</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <%- include('components/jsIncludes') %>
+    </body>
+</html>

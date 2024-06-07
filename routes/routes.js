@@ -7,6 +7,7 @@ const userController = require('../controllers/userController');
 const channelingController = require('../controllers/channelingController');
 const paymentController = require('../controllers/paymentsController');
 const doctorController = require('../controllers/doctorController');
+const patientController = require('../controllers/patientController');
 
 
 // default routes
@@ -29,6 +30,7 @@ route.get('/admin/contacts', midlleware.cookieAuthCheck, contactsController.getA
 route.get('/admin/contact/reply/:id', midlleware.cookieAuthCheck, contactsController.replyMessageGet);
 route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getView);
 route.get('/admin/doctors', midlleware.cookieAuthCheck, doctorController.getAdminView);
+route.get('/admin/patients', midlleware.cookieAuthCheck, patientController.getPatients);
 
 route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.editUser);
 route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
@@ -36,7 +38,6 @@ route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorControlle
 route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
 route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController.removeUser);
 route.post('/admin/doctors/remove/:id', midlleware.cookieAuthCheck, doctorController.removeDoctor);
-
 
 
 // notfound route
