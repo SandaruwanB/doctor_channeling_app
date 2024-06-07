@@ -22,6 +22,11 @@ const contact = sequalize.define('contact', {
     message : {
         type : Sequalizer.TEXT,
         allowNull : false
+    },
+    status : {
+        type : Sequalizer.STRING,
+        allowNull : false,
+        default : "Not replied"
     }
 });
 

@@ -41,8 +41,8 @@
                                                     <td><%= message.message %></td>
                                                     <td><%= message.contact %></td>
                                                     <td>
-                                                        <form class="action-buttons" action="/admin/contacts/<%= message.id %>" method="post"><button type="submit">delete</button></form>
-                                                        <a href="/admin/contact/reply/<%= message.id %>"><button>reply</button></a>
+                                                        <form class="action-buttons" action="/admin/contacts/<%= message.id %>" method="post"><button class="delete-btn" type="submit"><i class="fa-solid fa-trash"></i></button></form>
+                                                        <a href="/admin/contact/reply/<%= message.id %>"><button class="reply-btn"><i class="fa-solid fa-reply"></i></button></a>
                                                     </td>
                                                 </tr>
                                             <% } %>
