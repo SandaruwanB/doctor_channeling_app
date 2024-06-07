@@ -2,8 +2,7 @@ const doctor = require('../models/doctorModel');
 
 module.exports.getAdminView = async (req,res)=>{
     const doctors = await doctor.findAll();
-
-    console.log(doctors);
+    
     res.render('admin/doctors', {doctors});
 }
 
