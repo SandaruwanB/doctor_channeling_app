@@ -9,6 +9,7 @@ module.exports.getAdminView = async (req,res)=>{
 
 
 module.exports.removeDoctor = async (req,res)=>{
+    await doctor.destroy({where : {id : req.params.id}});
     res.redirect('/admin/doctors');
 }
 

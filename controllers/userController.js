@@ -8,6 +8,7 @@ module.exports.getUsers = async (req,res)=>{
 }
 
 module.exports.removeUser = async (req,res)=>{
+    await User.destroy({where : {id : req.params.id}});
     res.redirect('/admin/users');
 }
 
