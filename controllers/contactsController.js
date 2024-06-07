@@ -18,3 +18,7 @@ module.exports.addContact = (req,res)=>{
 
     res.json({result : "success"});
 }
+
+module.exports.getAdminView = (req,res)=>{
+    res.render('admin/contacts');
+}

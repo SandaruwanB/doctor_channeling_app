@@ -23,6 +23,7 @@ route.post('/logout', authController.logout);
 route.get('/admin/dashboard', midlleware.cookieAuthCheck ,adminDash.getView);
 route.get('/admin/users', midlleware.cookieAuthCheck, userController.getUsers);
 route.get('/admin/channelings', midlleware.cookieAuthCheck, channelingController.getView);
+route.get('/admin/contacts', midlleware.cookieAuthCheck, contactsController.getAdminView);
 
 // notfound route
 route.get('*', (req,res)=>{res.render('notFound')});
