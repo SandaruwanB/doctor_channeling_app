@@ -27,8 +27,11 @@ route.get('/admin/contacts', midlleware.cookieAuthCheck, contactsController.getA
 route.get('/admin/contact/reply/:id', midlleware.cookieAuthCheck, contactsController.replyMessageGet);
 route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getView);
 
+route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.editUser);
+
 
 route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
+route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController.removeUser);
 
 
 

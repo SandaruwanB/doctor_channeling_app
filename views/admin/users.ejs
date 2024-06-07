@@ -48,7 +48,7 @@
                                                         <td><%= user.address %></td>
                                                         <td>
                                                             <a href="/admin/users/edit/<%= user.id %>"><button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button></a>
-                                                            <form action="" method="post" class="action-buttons"><button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button></form>
+                                                            <form action="/admin/users/remove/<%= user.id %>" method="post" class="action-buttons"><button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button></form>
                                                         </td>
                                                     </tr> 
                                                 <% } %>
