@@ -28,15 +28,34 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Subject</th>
-                                            <th>Message</th>
-                                            <th>Contact no.</th>
-                                            <th>Status</th>
+                                            <th>Contact</th>
+                                            <th>Working Hours</th>
+                                            <th>Average time per patient</th>
+                                            <th>Specialized in</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <% if (doctors.length > 0) {%>
+                                            <% for (const doctor of doctors){ %>
+                                                <tr>
+                                                    <td><%= doctor.firstName + " " + doctor.lastName %></td>
+                                                    <td><%= doctor.email %></td>
+                                                    <td><%= doctor.contact %></td>
+                                                    <td><%= doctor.workingHoursPerDay %> hours</td>
+                                                    <td><%= doctor.averageTimePerPatient %> mins</td>
+                                                    <td><%= doctor.specializedIn %></td>
+                                                    <td>
+                                                        <a href="/admin/doctors/edit/<%= doctor.id %>"><button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                                        <form action="/admin/doctors/remove/<%= doctor.id %>" method="post" class="action-buttons"><button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button></form>
+                                                    </td>
+                                                </tr>
+                                            <% } %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td style="text-align: center; color: gray;" colspan="7">No doctors found</td>
+                                            </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
                             </div>

@@ -31,10 +31,11 @@ route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getVi
 route.get('/admin/doctors', midlleware.cookieAuthCheck, doctorController.getAdminView);
 
 route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.editUser);
-
+route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
 
 route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
 route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController.removeUser);
+route.post('/admin/doctors/remove/:id', midlleware.cookieAuthCheck, doctorController.removeDoctor);
 
 
 
