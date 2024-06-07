@@ -4,6 +4,7 @@ require('./models/doctorModel');
 require('./models/patientModel');
 require('./models/channelingModel');
 require('./models/contactModel');
+require('./models/paymentsModel');
 
 
 module.exports.migrate = ()=>{
