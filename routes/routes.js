@@ -3,6 +3,7 @@ const midlleware = require('../middlewares/authMiddleware');
 const authController = require('../controllers/authController');
 const adminDash = require('../controllers/adminDashboardController');
 const contactsController = require('../controllers/contactsController');
+const userController = require('../controllers/userController');
 
 // default routes
 route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
@@ -19,6 +20,7 @@ route.post('/logout', authController.logout);
 
 // admin routes
 route.get('/admin/dashboard', midlleware.cookieAuthCheck ,adminDash.getView);
+route.get('/admin/users', midlleware.cookieAuthCheck, userController.getUsers);
 
 // notfound route
 route.get('*', (req,res)=>{res.render('notFound')});
