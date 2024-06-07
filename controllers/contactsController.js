@@ -19,6 +19,17 @@ module.exports.addContact = (req,res)=>{
     res.json({result : "success"});
 }
 
-module.exports.getAdminView = (req,res)=>{
-    res.render('admin/contacts');
+module.exports.getAdminView = async (req,res)=>{
+    const messages = await Contact.findAll();
+
+    res.render('admin/contacts', {messages});
+}
+
+module.exports.removeMessage = async (req,res)=>{
+    console.log(req.params.id);
+    res.redirect('/admin/contacts');
+}
+
+module.exports.replyMessageGet = (req,res)=>{
+    res.render('admin/actions/replyMessage');
 }

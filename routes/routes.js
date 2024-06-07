@@ -24,7 +24,13 @@ route.get('/admin/dashboard', midlleware.cookieAuthCheck ,adminDash.getView);
 route.get('/admin/users', midlleware.cookieAuthCheck, userController.getUsers);
 route.get('/admin/channelings', midlleware.cookieAuthCheck, channelingController.getAdminView);
 route.get('/admin/contacts', midlleware.cookieAuthCheck, contactsController.getAdminView);
+route.get('/admin/contact/reply/:id', midlleware.cookieAuthCheck, contactsController.replyMessageGet);
 route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getView);
+
+
+route.post('/admin/contacts/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
+
+
 
 // notfound route
 route.get('*', (req,res)=>{res.render('notFound')});
