@@ -6,6 +6,8 @@ const contactsController = require('../controllers/contactsController');
 const userController = require('../controllers/userController');
 const channelingController = require('../controllers/channelingController');
 const paymentController = require('../controllers/paymentsController');
+const doctorController = require('../controllers/doctorController');
+
 
 // default routes
 route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
@@ -26,6 +28,7 @@ route.get('/admin/channelings', midlleware.cookieAuthCheck, channelingController
 route.get('/admin/contacts', midlleware.cookieAuthCheck, contactsController.getAdminView);
 route.get('/admin/contact/reply/:id', midlleware.cookieAuthCheck, contactsController.replyMessageGet);
 route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getView);
+route.get('/admin/doctors', midlleware.cookieAuthCheck, doctorController.getAdminView);
 
 route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.editUser);
 
