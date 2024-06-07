@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const adminDash = require('../controllers/adminDashboardController');
 const contactsController = require('../controllers/contactsController');
 const userController = require('../controllers/userController');
+const channelingController = require('../controllers/channelingController');
 
 // default routes
 route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
@@ -21,6 +22,7 @@ route.post('/logout', authController.logout);
 // admin routes
 route.get('/admin/dashboard', midlleware.cookieAuthCheck ,adminDash.getView);
 route.get('/admin/users', midlleware.cookieAuthCheck, userController.getUsers);
+route.get('/admin/channelings', midlleware.cookieAuthCheck, channelingController.getView);
 
 // notfound route
 route.get('*', (req,res)=>{res.render('notFound')});
