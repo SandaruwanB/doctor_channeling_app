@@ -28,7 +28,7 @@ route.get('/admin/contact/reply/:id', midlleware.cookieAuthCheck, contactsContro
 route.get('/admin/payments', midlleware.cookieAuthCheck, paymentController.getView);
 
 
-route.post('/admin/contacts/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
+route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
 
 
 
