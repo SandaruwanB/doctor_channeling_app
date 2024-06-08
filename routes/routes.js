@@ -36,6 +36,7 @@ route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.ed
 route.get('/admin/users/add', midlleware.cookieAuthCheck, userController.addUser);
 route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
 route.get('/admin/patients/edit/:id', midlleware.cookieAuthCheck, patientController.editPatients);
+route.get('/admin/patients/add', midlleware.cookieAuthCheck, patientController.addPatient);
 
 route.post('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.upadateUser);
 

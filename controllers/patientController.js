@@ -15,3 +15,7 @@ module.exports.removePatient = async (req,res)=>{
     const message = "Successfully Removed";
     res.redirect('/admin/patients', {message});
 }
+
+module.exports.addPatient = async (req,res)=>{
+    res.render('admin/actions/patientsAdd');
+}
