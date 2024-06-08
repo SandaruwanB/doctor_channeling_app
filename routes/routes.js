@@ -46,6 +46,7 @@ route.post('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorControll
 route.post('/admin/users/add', midlleware.cookieAuthCheck, userController.createUser);
 route.post('/admin/patients/add', midlleware.cookieAuthCheck, patientController.createPatient);
 route.post('/admin/doctors/add', midlleware.cookieAuthCheck, doctorController.saveDoctor);
+route.post('/admin/payments/new', midlleware.cookieAuthCheck, paymentController.createPayment);
 
 route.post('/admin/contacts/mark/:id', midlleware.cookieAuthCheck, contactsController.markAsRead);
 
