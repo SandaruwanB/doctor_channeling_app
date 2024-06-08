@@ -43,8 +43,9 @@
                                                     <td><%= message.contact %></td>
                                                     <td><span class="<%= message.status ? "status-ok" : "status-false" %>"><%= message.status ? "replied" : "not replied" %></span></td>
                                                     <td>
-                                                        <form class="action-buttons" action="/admin/contacts/remove/<%= message.id %>" method="post"><button class="delete-btn" type="submit"><i class="fa-solid fa-trash"></i></button></form>
+                                                        <form class="action-buttons" action="/admin/contacts/mark/<%= message.id %>" method="post"><button class="edit-btn" type="submit"><i class="fa-solid fa-check-double"></i></button></form>
                                                         <a href="/admin/contact/reply/<%= message.id %>"><button class="reply-btn"><i class="fa-solid fa-reply"></i></button></a>
+                                                        <form class="action-buttons" action="/admin/contacts/remove/<%= message.id %>" method="post"><button class="delete-btn" type="submit"><i class="fa-solid fa-trash"></i></button></form>
                                                     </td>
                                                 </tr>
                                             <% } %>

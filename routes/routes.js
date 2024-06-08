@@ -44,6 +44,8 @@ route.post('/admin/patients/edit/:id', midlleware.cookieAuthCheck, patientContro
 route.post('/admin/users/add', midlleware.cookieAuthCheck, userController.createUser);
 route.post('/admin/patients/add', midlleware.cookieAuthCheck, patientController.createPatient);
 
+route.post('/admin/contacts/mark/:id', midlleware.cookieAuthCheck, contactsController.markAsRead);
+
 route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsController.removeMessage);
 route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController.removeUser);
 route.post('/admin/doctors/remove/:id', midlleware.cookieAuthCheck, doctorController.removeDoctor);

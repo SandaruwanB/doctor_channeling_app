@@ -34,3 +34,9 @@ module.exports.removeMessage = async (req,res)=>{
 module.exports.replyMessageGet = (req,res)=>{
     res.render('admin/actions/replyMessage');
 }
+
+module.exports.markAsRead = async (req,res)=>{
+    await Contact.update({status : true}, {where : {id : req.params.id}});
+
+    res.redirect('/admin/contacts');
+}
