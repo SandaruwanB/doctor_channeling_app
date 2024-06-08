@@ -34,15 +34,17 @@ route.get('/admin/patients', midlleware.cookieAuthCheck, patientController.getPa
 
 route.get('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.editUser);
 route.get('/admin/users/add', midlleware.cookieAuthCheck, userController.addUser);
-route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
 route.get('/admin/patients/edit/:id', midlleware.cookieAuthCheck, patientController.editPatients);
 route.get('/admin/patients/add', midlleware.cookieAuthCheck, patientController.addPatient);
+route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
+route.get('/admin/doctors/add', midlleware.cookieAuthCheck, doctorController.addDoctor);
 
 route.post('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.upadateUser);
 route.post('/admin/patients/edit/:id', midlleware.cookieAuthCheck, patientController.updateUser);
-
+route.post('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.updateDoctor);
 route.post('/admin/users/add', midlleware.cookieAuthCheck, userController.createUser);
 route.post('/admin/patients/add', midlleware.cookieAuthCheck, patientController.createPatient);
+route.post('/admin/doctors/add', midlleware.cookieAuthCheck, doctorController.saveDoctor);
 
 route.post('/admin/contacts/mark/:id', midlleware.cookieAuthCheck, contactsController.markAsRead);
 

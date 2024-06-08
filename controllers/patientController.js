@@ -18,7 +18,7 @@ module.exports.removePatient = async (req,res)=>{
 }
 
 module.exports.addPatient = async (req,res)=>{
-    res.render('admin/actions/patientsAdd');
+    res.render('admin/actions/patientsAddForm');
 }
 
 module.exports.createPatient = async (req,res)=>{

@@ -6,13 +6,29 @@ module.exports.getAdminView = async (req,res)=>{
     res.render('admin/doctors', {doctors});
 }
 
-
 module.exports.removeDoctor = async (req,res)=>{
     await doctor.destroy({where : {id : req.params.id}});
     res.redirect('/admin/doctors');
 }
 
-
 module.exports.editDoctor = async (req,res)=>{
-    res.render('admin/actions/doctorForm');
+    const doctordetails = await doctor.findOne({where : {id : req.params.id}});
+
+    res.render('admin/actions/doctorForm', {doctordetails});
+}
+
+module.exports.addDoctor = async (req,res)=>{
+    res.render('admin/actions/doctorAddForm');
+}
+
+module.exports.saveDoctor = async (req,res)=>{
+    await doctor.create(req.body);
+    
+    res.redirect('/admin/doctors');
+}
+
+module.exports.updateDoctor = async (req,res)=>{
+    await doctor.update(req.body, {where : {id : req.params.id}});
+
+    res.redirect('/admin/doctors');
 }
