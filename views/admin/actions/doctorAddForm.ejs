@@ -64,6 +64,18 @@
                         <label for="exampleInputPassword1">Doctor specialized in</label>
                         <input type="text" name="specializedIn" class="form-control" id="exampleInputPassword1" placeholder="doctor specialized in" required>
                     </div>
+                    <div class="form-group mt-2">
+                        <span for="">Available Dates</label>
+                        <div class="d-block">
+                            <input type="checkbox" name="availableDates[]" value="sunday"/> Sunday
+                            <input type="checkbox" name="availableDates[]" value="monday" style="margin-left: 10px;" /> Monday 
+                            <input type="checkbox" name="availableDates[]" value="tuesday" style="margin-left: 10px;" /> Tuesday 
+                            <input type="checkbox" name="availableDates[]" value="wednsday" style="margin-left: 10px;" /> Wednsday 
+                            <input type="checkbox" name="availableDates[]" value="thursday" style="margin-left: 10px;" /> Thursday <br/>
+                            <input type="checkbox" name="availableDates[]" value="friday"/> Friday
+                            <input type="checkbox" name="availableDates[]" value="saturday" style="margin-left: 10px;" /> Saturday 
+                        </div>    
+                    </div>
                     <div class="mt-4">
                         <button type="submit" class="btn btn-primary">Save</button>
                         <a href="/admin/doctors"><button type="button" class="btn btn-secondary">Cancel</button></a>

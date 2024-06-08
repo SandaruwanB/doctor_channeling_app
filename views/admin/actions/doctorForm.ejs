@@ -64,6 +64,18 @@
                         <label for="exampleInputPassword1">Doctor specialized in</label>
                         <input type="text" name="specializedIn" value="<%= doctordetails.specializedIn %>" class="form-control" id="exampleInputPassword1" placeholder="doctor specialized in" required>
                     </div>
+                    <div class="form-group mt-2">
+                        <span for="">Available Dates</label>
+                        <div class="d-block">
+                            <input type="checkbox" name="availableDates[]" value="sunday" <%= doctordetails.availableDates.find(item => item === "sunday") ? "checked" : "" %>/> Sunday
+                            <input type="checkbox" name="availableDates[]" value="monday" <%= doctordetails.availableDates.find(item => item === "monday") ? "checked" : "" %> style="margin-left: 10px;" /> Monday 
+                            <input type="checkbox" name="availableDates[]" value="tuesday" <%= doctordetails.availableDates.find(item => item === "tuesday") ? "checked" : "" %> style="margin-left: 10px;" /> Tuesday 
+                            <input type="checkbox" name="availableDates[]" value="wednsday" <%= doctordetails.availableDates.find(item => item === "wednsday") ? "checked" : "" %> style="margin-left: 10px;" /> Wednsday 
+                            <input type="checkbox" name="availableDates[]" value="thursday" <%= doctordetails.availableDates.find(item => item === "thursday") ? "checked" : "" %> style="margin-left: 10px;" /> Thursday <br/>
+                            <input type="checkbox" name="availableDates[]" value="friday" <%= doctordetails.availableDates.find(item => item === "friday") ? "checked" : "" %>/> Friday
+                            <input type="checkbox" name="availableDates[]" value="saturday" <%= doctordetails.availableDates.find(item => item === "saturday") ? "checked" : "" %> style="margin-left: 10px;" /> Saturday
+                        </div> 
+                    </div>
                     <div class="mt-4">
                         <button type="submit" class="btn btn-primary">Save</button>
                         <a href="/admin/doctors"><button type="button" class="btn btn-secondary">Cancel</button></a>

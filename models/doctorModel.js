@@ -33,6 +33,10 @@ const doctor = sequalize.define("doctor", {
     specializedIn : {
         type : Sequalizer.STRING,
         allowNull : false
+    },
+    availableDates : {
+        type : Sequalizer.JSON,
+        allowNull : false,
     }
 });
 

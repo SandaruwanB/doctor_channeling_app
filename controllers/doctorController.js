@@ -23,7 +23,6 @@ module.exports.addDoctor = async (req,res)=>{
 
 module.exports.saveDoctor = async (req,res)=>{
     await doctor.create(req.body);
-    
     res.redirect('/admin/doctors');
 }
 
