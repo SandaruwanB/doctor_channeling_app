@@ -26,16 +26,37 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Subject</th>
-                                            <th>Message</th>
-                                            <th>Contact no.</th>
-                                            <th>Status</th>
+                                            <th>Channel number</th>
+                                            <th>Patient name</th>
+                                            <th>Doctor name</th>
+                                            <th>Payed with</th>
+                                            <th>Amount</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <% if (channelings.length > 0 && payments.length > 0){ %>
+                                            <% for (const channeling of channelings) { %>
+                                                <% for (const payment of payments){ %>
+                                                    <% if (payment.id == channeling.paymentId){ %>
+                                                        <tr>
+                                                            <td><%= channeling.apoinmentNumber %></td>
+                                                            <td><%= channeling.patient.name %></td>
+                                                            <td><%= channeling.doctor.firstName + " " + channeling.doctor.lastName %></td>
+                                                            <td><%= payment.method %></td>
+                                                            <td>Rs.<%= payment.amount %></td>
+                                                            <td>
+                                                                <form action="/admin/payments/remove/<%= channeling.id %>/<%= payment.id %>" method="post"><button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button></form>
+                                                            </td>
+                                                        </tr>
+                                                    <% } %>
+                                                <% } %>
+                                            <% } %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td style="text-align: center; color: gray;" colspan="6">No payments found</td>
+                                            </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
                             </div>

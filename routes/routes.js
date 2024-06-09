@@ -54,6 +54,7 @@ route.post('/admin/contacts/remove/:id', midlleware.cookieAuthCheck, contactsCon
 route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController.removeUser);
 route.post('/admin/doctors/remove/:id', midlleware.cookieAuthCheck, doctorController.removeDoctor);
 route.post('/admin/patients/remove/:id', midlleware.cookieAuthCheck, patientController.removePatient);
+route.post('/admin/payments/remove/:channelingId/:paymentId', midlleware.cookieAuthCheck, paymentController.removePayment);
 
 
 // notfound route
