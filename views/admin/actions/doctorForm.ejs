@@ -75,15 +75,44 @@
                         </select>
                     </div> 
                     <div class="form-group mt-2">
-                        <span for="">Available Dates</label>
+                        <span for="">Available Dates and Time</label>
                         <div class="d-block">
-                            <input type="checkbox" name="availableDates[]" value="sunday" <%= doctordetails.availableDates.find(item => item === "sunday") ? "checked" : "" %>/> Sunday
-                            <input type="checkbox" name="availableDates[]" value="monday" <%= doctordetails.availableDates.find(item => item === "monday") ? "checked" : "" %> style="margin-left: 10px;" /> Monday 
-                            <input type="checkbox" name="availableDates[]" value="tuesday" <%= doctordetails.availableDates.find(item => item === "tuesday") ? "checked" : "" %> style="margin-left: 10px;" /> Tuesday 
-                            <input type="checkbox" name="availableDates[]" value="wednsday" <%= doctordetails.availableDates.find(item => item === "wednsday") ? "checked" : "" %> style="margin-left: 10px;" /> Wednsday 
-                            <input type="checkbox" name="availableDates[]" value="thursday" <%= doctordetails.availableDates.find(item => item === "thursday") ? "checked" : "" %> style="margin-left: 10px;" /> Thursday <br/>
-                            <input type="checkbox" name="availableDates[]" value="friday" <%= doctordetails.availableDates.find(item => item === "friday") ? "checked" : "" %>/> Friday
-                            <input type="checkbox" name="availableDates[]" value="saturday" <%= doctordetails.availableDates.find(item => item === "saturday") ? "checked" : "" %> style="margin-left: 10px;" /> Saturday
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="sunday" <%= doctordetails.availableDates.find(item => item === "sunday") ? "checked" : "" %>/> Sunday</div>
+                                    <input type="time" name="monday" placeholder="time"/>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="monday" <%= doctordetails.availableDates.find(item => item === "monday") ? "checked" : "" %> /> Monday</div>
+                                    <input type="time" name="tuesday" placeholder="time" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="tuesday" <%= doctordetails.availableDates.find(item => item === "tuesday") ? "checked" : "" %>  /> Tuesday </div>
+                                    <input type="time" name="tuesday" placeholder="time"/>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="wednsday" <%= doctordetails.availableDates.find(item => item === "wednsday") ? "checked" : "" %> /> Wednsday</div>
+                                    <input type="time" name="wednsday" placeholder="time" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="thursday" <%= doctordetails.availableDates.find(item => item === "thursday") ? "checked" : "" %> /> Thursday</div>
+                                    <input type="time" name="thursday" placeholder="time"/>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="friday" <%= doctordetails.availableDates.find(item => item === "friday") ? "checked" : "" %>/> Friday</div>
+                                    <input type="time" name="friday" placeholder="time" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="saturday" <%= doctordetails.availableDates.find(item => item === "saturday") ? "checked" : "" %> /> Saturday</div>
+                                    <input type="time" name="saturday" placeholder="time"/>
+                                </div>
+                            </div>                            
                         </div> 
                     </div>
                     <div class="mt-4">

@@ -75,16 +75,45 @@
                         </select>
                     </div> 
                     <div class="form-group mt-2">
-                        <span for="">Available Dates</label>
+                        <span for="">Available Dates and Time</label>
                         <div class="d-block">
-                            <input type="checkbox" name="availableDates[]" value="sunday"/> Sunday
-                            <input type="checkbox" name="availableDates[]" value="monday" style="margin-left: 10px;" /> Monday 
-                            <input type="checkbox" name="availableDates[]" value="tuesday" style="margin-left: 10px;" /> Tuesday 
-                            <input type="checkbox" name="availableDates[]" value="wednsday" style="margin-left: 10px;" /> Wednsday 
-                            <input type="checkbox" name="availableDates[]" value="thursday" style="margin-left: 10px;" /> Thursday <br/>
-                            <input type="checkbox" name="availableDates[]" value="friday"/> Friday
-                            <input type="checkbox" name="availableDates[]" value="saturday" style="margin-left: 10px;" /> Saturday 
-                        </div>    
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="sunday" /> Sunday</div>
+                                    <input type="time" name="monday" placeholder="time"/>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="monday" /> Monday</div>
+                                    <input type="time" name="tuesday" placeholder="time" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="tuesday" /> Tuesday </div>
+                                    <input type="time" name="tuesday" placeholder="time"/>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="wednsday" /> Wednsday</div>
+                                    <input type="time" name="wednsday" placeholder="time" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="thursday" /> Thursday</div>
+                                    <input type="time" name="thursday" placeholder="time"/>
+                                </div>
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="friday" /> Friday</div>
+                                    <input type="time" name="friday" placeholder="time" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div style="display: inline-block;"><input type="checkbox" name="availableDates[]" value="saturday" /> Saturday</div>
+                                    <input type="time" name="saturday" placeholder="time"/>
+                                </div>
+                            </div>                            
+                        </div> 
                     </div>
                     <div class="mt-4">
                         <button type="submit" class="btn btn-primary">Save</button>
