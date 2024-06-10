@@ -39,6 +39,8 @@ route.get('/admin/patients/add', midlleware.cookieAuthCheck, patientController.a
 route.get('/admin/doctors/edit/:id', midlleware.cookieAuthCheck, doctorController.editDoctor);
 route.get('/admin/doctors/add', midlleware.cookieAuthCheck, doctorController.addDoctor);
 route.get('/admin/payments/new', midlleware.cookieAuthCheck, paymentController.newPayment);
+route.get('/admin/channelings/edit/:id', midlleware.cookieAuthCheck, channelingController.editChanneling);
+route.get('/admin/channelings/new', midlleware.cookieAuthCheck, channelingController.addChanneling);
 
 route.post('/admin/users/edit/:id', midlleware.cookieAuthCheck, userController.upadateUser);
 route.post('/admin/patients/edit/:id', midlleware.cookieAuthCheck, patientController.updateUser);
@@ -55,6 +57,7 @@ route.post('/admin/users/remove/:id', midlleware.cookieAuthCheck, userController
 route.post('/admin/doctors/remove/:id', midlleware.cookieAuthCheck, doctorController.removeDoctor);
 route.post('/admin/patients/remove/:id', midlleware.cookieAuthCheck, patientController.removePatient);
 route.post('/admin/payments/remove/:channelingId/:paymentId', midlleware.cookieAuthCheck, paymentController.removePayment);
+route.post('/admin/channelings/remove/:id', midlleware.cookieAuthCheck, channelingController.removeChanneling);
 
 
 // notfound route

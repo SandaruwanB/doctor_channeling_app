@@ -1,6 +1,21 @@
-const channeling = require('../models/channelingModel');
+const {channeling, patient, doctor, payment} = require('../models/channelingModel');
 
-module.exports.getAdminView = (req,res)=>{
+module.exports.getAdminView = async (req,res)=>{
+    const channelings = await channeling.findAll({include : [{model : doctor}, {model : patient}]});
 
-    res.render('admin/channelings');
+    res.render('admin/channelings', {channelings});
+}
+
+module.exports.removeChanneling = async (req, res)=>{
+    await channeling.destroy({where : {id : req.params.id}});
+
+    res.redirect('/admin/channelings');
+}
+
+module.exports.editChanneling = async (req,res)=>{
+    res.render('admin/actions/channelingsForm');
+}
+
+module.exports.addChanneling = async (req,res)=>{
+    res.render('admin/actions/channelingsAddForm');
 }
