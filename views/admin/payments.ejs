@@ -42,7 +42,7 @@
                                                         <tr>
                                                             <td><%= channeling.apoinmentNumber %></td>
                                                             <td><%= channeling.patient.name %></td>
-                                                            <td><%= channeling.doctor.firstName + " " + channeling.doctor.lastName %></td>
+                                                            <td><%= channeling.doctor ? channeling.doctor.firstName + " " + channeling.doctor.lastName : "Removed" %></td>
                                                             <td><%= payment.method %></td>
                                                             <td>Rs.<%= payment.amount %></td>
                                                             <td>
