@@ -37,6 +37,10 @@ const doctor = sequalize.define("doctor", {
     availableDates : {
         type : Sequalizer.JSON,
         allowNull : false,
+    },
+    workingTime : {
+        type : Sequalizer.JSON,
+        allowNull : false
     }
 });
 
