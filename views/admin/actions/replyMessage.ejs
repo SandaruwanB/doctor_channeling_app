@@ -1,1 +1,56 @@
-<h1>reply form</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Suwasetha | Reply to Message</title>
+        <%- include('../components/cssIncludes') %>
+        <style>
+            .form{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            form{
+                width: 500px;
+            }
+            h1{
+                color: gray;
+            }
+            label{
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form">
+            <form action="" method="post">
+                <div>
+                    <h1 class="text-center">Email Form</h1>
+                    <p class="text-center">You can send reply mail using this form</p>
+                </div>
+                <div class="mt-5 w-100">
+                    <div class="form-group mt-2">
+                        <label for="exampleInputPassword1">Email address</label>
+                        <input type="email" name="email" value="<%= message.email %>" class="form-control" id="exampleInputPassword1" placeholder="email address" required>
+                    </div>       
+                    <div class="form-group mt-2">
+                        <label for="exampleInputPassword1">Subject</label>
+                        <input type="text" name="subject" value="Reply for <%= message.subject %>" class="form-control" id="exampleInputPassword1" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="exampleFormControlTextarea1">Message</label>
+                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="5" required>Hello <%= message.name %>,</textarea>
+                      </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <a href="/admin/contacts"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                    </div>                      
+                </div>
+            </form>
+        </div>
+        <%- include('../components/jsIncludes') %>
+    </body>
+</html>
