@@ -19,3 +19,9 @@ module.exports.editChanneling = async (req,res)=>{
 module.exports.addChanneling = async (req,res)=>{
     res.render('admin/actions/channelingsAddForm');
 }
+
+module.exports.getView = async (req,res)=>{
+    const doctors = doctor.findAll();
+
+    res.render('apoinment', {doctors});
+}

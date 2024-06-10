@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suwasetha | Book Appointment</title>
+    <%- include('components/mainCSS') %>
+</head>
+<body>
+    <%- include('components/preloader') %>
+    <%- include('layouts/headerMain') %>
+
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="bread-inner">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Book Appointment</h2>
+                        <ul class="bread-list">
+                            <li><a href="/">Home</a></li>
+                            <li><i class="icofont-simple-right"></i></li>
+                            <li class="active">Book Appointment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="appointment">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>We Are Always Ready to Help You. Book An Appointment</h2>
+                        <img src="/images/main/section-img.png" alt="#">
+                        <p>Please Choose doctor to get start</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <% if (doctors.length > 0 ){ %>
+                    
+                <% } else { %>
+                    <div class="alert alert-info text-center mb-5">Doctors not available this moment! please stay touch</div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+    <%- include('layouts/footerMain') %>
+    <%- include('components/mainJS') %>
+    <script>
+        $('.add-contact').click(function (e) { 
+            e.preventDefault(); 
+
+            const name = $('.name').val();
+            const email = $('.email').val();
+            const phone = $('.phone').val();
+            const subject = $('.subject').val();
+            const message = $('.message').val();
+
+            if (name && email && phone && subject && message){
+                $.ajax({
+                    type: "post",
+                    url: "/contact",
+                    data: {
+                        name : name,
+                        email : email,
+                        contact : phone,
+                        subject : subject,
+                        message : message,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $('.name').val("");
+                        $('.email').val("");
+                        $('.phone').val("");
+                        $('.subject').val("");
+                        $('.message').val("");
+
+                        showToast("Thanks for contacting us.please stay touch with your email box.", "");
+                    }
+                });
+            }
+            else{
+                showToast("All fields are required.", "err");
+            }
+
+        });
+
+        const showToast = (message, type)=>{
+            if (type == "err"){
+                Toastify({
+                    text: message,
+                    duration: 4000,
+                    stopOnFocus : true,
+                    gravity : "top",
+                    position : "center",
+                    style : {
+                        background : "#f51905",
+                        color : "#fff"
+                    }
+                }).showToast();
+            }
+            else{
+                Toastify({
+                    text: message,
+                    duration: 4000,
+                    stopOnFocus : true,
+                    gravity : "top",
+                    position : "center",
+                    style : {
+                        background : "#03a80e",
+                        color : "#fff"
+                    }
+                }).showToast();
+            }
+        }
+    </script>
+</body>
+</html>
