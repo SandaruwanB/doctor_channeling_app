@@ -38,9 +38,18 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="row gx-5 mb-5">
                 <% if (doctors.length > 0 ){ %>
-                    
+                    <% for (const doctor of doctors){ %>
+                        <div class="col-md-3 col-lg-3 col-xl-3 col-sm-1 g-3 mb-5">
+                            <div class="text-center p-3" style="border: 2px solid #1a76d1; border-radius: 10px;"> 
+                                <img src="/images/doctor.png" alt="doctor" style="border-radius: 50%;">
+                                <span style="display: block; margin-top: 3px; font-weight: bold;">Dr.<%= doctor.firstName + " " + doctor.lastName %></span>
+                                <span style="display: block;"><%= doctor.specializedIn %></span>
+                                <a href="/apoinment/book/<%= doctor.id %>"><button class="btn mt-3">Channel</button></a>
+                            </div>
+                        </div>
+                    <% } %>
                 <% } else { %>
                     <div class="alert alert-info text-center mb-5">Doctors not available this moment! please stay touch</div>
                 <% } %>
@@ -49,73 +58,6 @@
     </section>
     <%- include('layouts/footerMain') %>
     <%- include('components/mainJS') %>
-    <script>
-        $('.add-contact').click(function (e) { 
-            e.preventDefault(); 
 
-            const name = $('.name').val();
-            const email = $('.email').val();
-            const phone = $('.phone').val();
-            const subject = $('.subject').val();
-            const message = $('.message').val();
-
-            if (name && email && phone && subject && message){
-                $.ajax({
-                    type: "post",
-                    url: "/contact",
-                    data: {
-                        name : name,
-                        email : email,
-                        contact : phone,
-                        subject : subject,
-                        message : message,
-                    },
-                    dataType: "json",
-                    success: function (response) {
-                        $('.name').val("");
-                        $('.email').val("");
-                        $('.phone').val("");
-                        $('.subject').val("");
-                        $('.message').val("");
-
-                        showToast("Thanks for contacting us.please stay touch with your email box.", "");
-                    }
-                });
-            }
-            else{
-                showToast("All fields are required.", "err");
-            }
-
-        });
-
-        const showToast = (message, type)=>{
-            if (type == "err"){
-                Toastify({
-                    text: message,
-                    duration: 4000,
-                    stopOnFocus : true,
-                    gravity : "top",
-                    position : "center",
-                    style : {
-                        background : "#f51905",
-                        color : "#fff"
-                    }
-                }).showToast();
-            }
-            else{
-                Toastify({
-                    text: message,
-                    duration: 4000,
-                    stopOnFocus : true,
-                    gravity : "top",
-                    position : "center",
-                    style : {
-                        background : "#03a80e",
-                        color : "#fff"
-                    }
-                }).showToast();
-            }
-        }
-    </script>
 </body>
 </html>

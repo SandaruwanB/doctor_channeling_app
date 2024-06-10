@@ -21,7 +21,7 @@ module.exports.addChanneling = async (req,res)=>{
 }
 
 module.exports.getView = async (req,res)=>{
-    const doctors = doctor.findAll();
+    const doctors = await doctor.findAll();
 
     res.render('apoinment', {doctors});
 }
