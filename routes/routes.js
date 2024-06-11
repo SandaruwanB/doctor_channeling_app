@@ -18,7 +18,7 @@ route.get('/contact', midlleware.authNotRequired, contactsController.index);
 route.get('/apoinment/book/:id', midlleware.authNotRequired, channelingController.getDoctorBookingView);
 
 route.post('/contact', contactsController.addContact);
-
+route.post('/apoinment/book/:id', channelingController.bookAppoinment)
 
 // auth routes
 route.get('/login', midlleware.authNotRequired, authController.index);
