@@ -15,7 +15,10 @@ route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
 route.get('/about', midlleware.authNotRequired, (req,res)=>{res.render('about')});
 route.get('/apoinment', midlleware.authNotRequired, channelingController.getView);
 route.get('/contact', midlleware.authNotRequired, contactsController.index);
+route.get('/apoinment/book/:id', midlleware.authNotRequired, channelingController.getDoctorBookingView);
+
 route.post('/contact', contactsController.addContact);
+
 
 // auth routes
 route.get('/login', midlleware.authNotRequired, authController.index);

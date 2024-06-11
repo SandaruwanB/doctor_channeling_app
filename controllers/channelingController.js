@@ -25,3 +25,9 @@ module.exports.getView = async (req,res)=>{
 
     res.render('apoinment', {doctors});
 }
+
+module.exports.getDoctorBookingView = async (req,res)=>{
+    const doc = await doctor.findOne({where : {id : req.params.id}});
+
+    res.render('doctorBooking', {doc});
+}
