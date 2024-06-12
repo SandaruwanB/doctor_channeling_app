@@ -7,7 +7,11 @@ module.exports.getAdminView = async (req,res)=>{
 }
 
 module.exports.removeChanneling = async (req, res)=>{
+    const channel = await channeling.findOne({where : {id : req.params.id}});
+    const paymentId = channel.paymentId;
+    await channeling.update({paymentId : null},{where : {id : req.params.id}});
     await channeling.destroy({where : {id : req.params.id}});
+    await payment.destroy({where : {id : paymentId}});
 
     res.redirect('/admin/channelings');
 }
