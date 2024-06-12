@@ -11,7 +11,7 @@ const patientController = require('../controllers/patientController');
 
 
 // default routes
-route.get('/', midlleware.authNotRequired, (req,res)=>{res.render('index')});
+route.get('/', midlleware.authNotRequired, adminDash.getHome);
 route.get('/about', midlleware.authNotRequired, (req,res)=>{res.render('about')});
 route.get('/apoinment', midlleware.authNotRequired, channelingController.getView);
 route.get('/contact', midlleware.authNotRequired, contactsController.index);

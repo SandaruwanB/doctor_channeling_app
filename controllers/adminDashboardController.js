@@ -20,3 +20,11 @@ module.exports.getView = async (req,res)=>{
 
     res.render('admin/dashboard', {channels, doctors, payments, patients, totalPayment, filterdData});
 }
+
+module.exports.getHome = async (req,res)=>{
+    const doctors = await doctor.findAll();
+    const patients = await patient.findAll();
+
+
+    res.render('index', {doctors, patients,});
+}
