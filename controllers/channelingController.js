@@ -1,7 +1,7 @@
 const {channeling, patient, doctor, payment} = require('../models/channelingModel');
 
 module.exports.getAdminView = async (req,res)=>{
-    const channelings = await channeling.findAll({include : [{model : doctor}, {model : patient}]});
+    const channelings = await channeling.findAll({include : [{model : doctor}, {model : patient}], order : [['createdAt', 'DESC']],});
 
     res.render('admin/channelings', {channelings});
 }
@@ -21,7 +21,25 @@ module.exports.editChanneling = async (req,res)=>{
 }
 
 module.exports.addChanneling = async (req,res)=>{
-    res.render('admin/actions/channelingsAddForm');
+    const doctors = await doctor.findAll();
+    const patients = await patient.findAll();
+
+    res.render('admin/actions/channelingsAddForm', {doctors, patients});
+}
+
+module.exports.createManualChanneling = async (req,res)=>{
+    const data = {
+        time : req.body.time,
+        doctorId : req.body.doctorId,
+        patientId : req.body.patientId,
+        date : req.body.date,
+        paymentState : false,
+        apoinmentNumber : "BK" + (Array(4).fill(0).map(() => Math.floor(Math.random() * (10 - 1 + 1)) + 1))[0] + (Array(4).fill(0).map(() => Math.floor(Math.random() * (10 - 1 + 1)) + 1))[1]+ (Array(4).fill(0).map(() => Math.floor(Math.random() * (10 - 1 + 1)) + 1))[2]+ (Array(4).fill(0).map(() => Math.floor(Math.random() * (10 - 1 + 1)) + 1))[3],
+    };
+
+    await channeling.create(data);
+
+    res.redirect('/admin/channelings');
 }
 
 module.exports.getView = async (req,res)=>{
