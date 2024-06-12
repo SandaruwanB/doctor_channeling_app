@@ -1,7 +1,7 @@
 const {channeling, patient, doctor, payment} = require('../models/channelingModel');
 
 module.exports.getView = async (req,res)=>{
-    const limit = 5;
+    const limit = 3;
     let totalPayment = 0;
     const channels = await channeling.findAll();
     const doctors = await doctor.findAll();

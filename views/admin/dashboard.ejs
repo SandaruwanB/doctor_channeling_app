@@ -73,31 +73,35 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Chanel no.</th>
+                                            <th>Doctor</th>
+                                            <th>Patient</th>
+                                            <td>Date</td>
+                                            <td>Payment State</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
+                                        <% if (filterdData.length > 0){ %>
+                                            <% for (const data of filterdData){ %>
+                                                <tr>
+                                                    <td><%= data.apoinmentNumber %></td>
+                                                    <td>Dr.<%= data.doctor.firstName + " " + data.doctor.lastName %></td>
+                                                    <td><%= data.patient.name %></td>
+                                                    <td><%= new Date(data.date).toLocaleDateString() %></td>
+                                                    <td>
+                                                        <%if (data.paymentState){ %>
+                                                            <span style="background: green; color: white; padding: 3px 8px; border-radius: 5px;">paid</span>
+                                                        <% } else { %>
+                                                            <span style="background: red; color: white; padding: 3px 8px; border-radius: 5px;">not paid</span>
+                                                        <% } %>
+                                                    </td>
+                                                </tr>
+                                            <% } %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td colspan="5" style="text-align: center; color: gray;">Recent bookings not available</td>
+                                            </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
                             </div>
