@@ -36,6 +36,19 @@ module.exports.getDoctorBookingView = async (req,res)=>{
     res.render('doctorBooking', {doc});
 }
 
+module.exports.getChartData = async (req,res)=>{
+    const payments = await payment.findAll();
+    let data = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+
+    payments.map((value)=>{
+        const month = new Date(value.createdAt).getMonth();
+        data[month] += value.amount;
+    });
+
+    res.json({data});
+}
+
 
 module.exports.bookAppoinment = async (req,res)=>{
     const reqDay = new Date(req.body.date).getDay();

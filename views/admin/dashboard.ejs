@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Suwasetha | Dashboard</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <%- include('components/cssIncludes') %>
     </head>
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" onload="getChartData()">
         <%- include('layouts/topnavbar') %>
         <div id="layoutSidenav">
             <%- include('layouts/navbar') %>
@@ -45,22 +46,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-6">
+                            <div class="col">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
+                                        Earnings Summary this year
                                     </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="20"></canvas></div>
                                 </div>
                             </div>
                         </div>
@@ -112,5 +104,68 @@
         </div>
 
         <%- include('components/jsIncludes') %>
+        <script>
+            $(document).ready(function () {
+
+                $.ajax({
+                    type: "get",
+                    url: "/chart/data",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response.data[5]);
+
+                        var ctx = document.getElementById("myAreaChart");
+                        var myLineChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"],
+                            datasets: [{
+                                label: "Sales",
+                                lineTension: 0.1,
+                                backgroundColor: "rgba(2,117,216,0.2)",
+                                borderColor: "rgba(2,117,216,1)",
+                                pointRadius: 5,
+                                pointBackgroundColor: "rgba(2,117,216,1)",
+                                pointBorderColor: "rgba(255,255,255,0.8)",
+                                pointHoverRadius: 5,
+                                pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                                pointHitRadius: 25,
+                                pointBorderWidth: 2,
+                                data: [response.data[0], response.data[1], response.data[2], response.data[3], response.data[4], response.data[5], response.data[6], response.data[7], response.data[8], response.data[9], response.data[10], response.data[11]],
+                            }],
+                            },
+                            options: {
+                            scales: {
+                                xAxes: [{
+                                time: {
+                                    unit: 'month'
+                                },
+                                gridLines: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 7
+                                }
+                                }],
+                                yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: 40000,
+                                    maxTicksLimit: 5
+                                },
+                                gridLines: {
+                                    color: "rgba(0, 0, 0, .125)",
+                                }
+                                }],
+                            },
+                            legend: {
+                                display: false
+                            }
+                            }
+                });
+                    }
+                });
+            });        
+        </script>
     </body>
 </html>
