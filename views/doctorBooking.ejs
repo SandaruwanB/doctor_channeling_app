@@ -14,6 +14,7 @@
                     <div class="section-title">
                         <h2>Book An Appointment</h2>
                         <img src="/images/main/section-img.png" alt="#">
+                        <span style="display: block;">If you are previous booker on our site fill email and booking date only. we have your details.</span>
                     </div>
                 </div>
             </div>
@@ -34,7 +35,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert text-center mt-5" style="background: transparent; border: 2px solid #1a76d1; border-radius: 10px; color: #000;">
+                <div class="text-center mt-5">
+                    <span style="color: #000;">Available Dates : </span>
+                    <% for(const day of doc.availableDates){ %>
+                        <span><%= day %> |</span>
+                    <% } %>
+                </div>
+                <div class="alert text-center mt-2" style="background: transparent; border: 2px solid #1a76d1; border-radius: 10px; color: #000;">
                     <span>Suwasetha Channeling Center - Channeling Sessions in this week</span>
                 </div>
                 <div class="row">
@@ -73,16 +80,15 @@
 								</div>
                                 <div class="col-lg-6 col-md-6 col-12">
 									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Gender</span>
-											<ul class="list">
-												<li value="male" class="option selected ">Male</li>
-												<li value="female" class="option">Female</li>
-											</ul>
-										</div>
+										<span class="current">Gender</span>
+                                        <select class="form-select" name="gender" aria-label="Default select example" required>
+                                            <option value="male" >Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
 									</div>
 								</div>
-							</div>
-							<div class="row">
+							</div> 
+							<div class="row" style="margin-bottom: 50px;">
 								<div class="col-lg-5 col-md-4 col-12">
 									<div class="form-group">
 										<div class="button">

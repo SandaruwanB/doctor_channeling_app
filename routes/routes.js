@@ -16,6 +16,7 @@ route.get('/about', midlleware.authNotRequired, (req,res)=>{res.render('about')}
 route.get('/apoinment', midlleware.authNotRequired, channelingController.getView);
 route.get('/contact', midlleware.authNotRequired, contactsController.index);
 route.get('/apoinment/book/:id', midlleware.authNotRequired, channelingController.getDoctorBookingView);
+route.get('/apoinment/book/success', midlleware.authNotRequired, (req, res)=>{res.render('channelComplete')});
 
 route.post('/contact', contactsController.addContact);
 route.post('/apoinment/book/:id', channelingController.bookAppoinment)
